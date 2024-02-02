@@ -1,13 +1,13 @@
 <launch>
-  <!--include file="$(find robot_bringup)/launch/gmapping.launch" /-->
-  <arg name="map" default="map_test"/>
+  <include file="$(find robot_bringup)/launch/gmapping.launch" />
+  <!--arg name="map" default="map_test"/>
   <arg name="map_file" default="$(find robot_bringup)/map/17_jan_2024.yaml"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/-->
   
   <!--- Run AMCL -->
-  <include file="$(find robot_bringup)/launch/amcl.launch" />
+  <!--include file="$(find robot_bringup)/launch/amcl.launch" /-->
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_bringup)/final_test_rviz.rviz"/>
+  <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_bringup)/final_test_rviz.rviz"/-->
   <!--node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/-->  
 
   <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_bringup)/final_test_rviz.rviz"/-->

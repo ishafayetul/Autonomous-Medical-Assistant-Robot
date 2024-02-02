@@ -134,10 +134,10 @@ void Odometry_calc::init_variables()
 
 	ticks_meter = 24638;
 
-	base_width = 0.373;
+	base_width = 0.44;
 	WHEEL_RADIUS = 0.085;
-	WHEEL_SEPARATION_WIDTH = 0.125; //0.075;
-	WHEEL_SEPARATION_LENGTH = 0.08; //0.1575;
+	WHEEL_SEPARATION_WIDTH = 0.18125; //0.075;
+	WHEEL_SEPARATION_LENGTH = 0.125; //0.1575;
 	
 
 	encoder_low_wrap = ((encoder_max - encoder_min) * 0.3) + encoder_min ;

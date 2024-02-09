@@ -38,21 +38,27 @@ class BTSMotor{
       }
       
       if(val>=0){
-        analogWrite(pwmf,spd);
-        analogWrite(pwmr,0);
+        for(int i=0;i<=spd;i++){
+          analogWrite(pwmf,i);
+          analogWrite(pwmr,0);
+          
+        } 
       }
       else if(val<0){
-        analogWrite(pwmr,spd);
-        analogWrite(pwmf,0);
+        for(int i=0;i<=spd;i++){
+          analogWrite(pwmr,i);
+          analogWrite(pwmf,0);
+          
+        } 
       }
     }
 };
 // Initialize PID paramaters
 
-Encoder encoder_fleft(43, 42);
-Encoder encoder_fright(45, 44);
-Encoder encoder_bleft(47, 46);
-Encoder encoder_bright(49, 48);
+Encoder encoder_bright(43, 42);//BR
+Encoder encoder_bleft(45, 44); //BL
+Encoder encoder_fright(47, 46);//FR
+Encoder encoder_fleft(49, 48);//FL
 
 
 double Setpoint_fl, Input_fl, Output_fl;
@@ -72,7 +78,7 @@ PID myPID_br(&Input_br, &Output_br, &Setpoint_br, aggKp, aggKi, aggKd, DIRECT);
 
 BTSMotor motor1(10,11); // left front //3,2
 BTSMotor motor2(4,5); // right front //5,4
-BTSMotor motor3(8,9); // left back // 6,7
+BTSMotor motor3(12,13); // left back // 6,7
 BTSMotor motor4(2,3); // right back //9,8
 
 bool wtf;
@@ -214,7 +220,7 @@ long old_ct2 = 0;
 long old_ct3 = 0;
 long old_ct4 = 0;
 
-float ticks_per_meter = 24638;
+float ticks_per_meter = 34000;
 
 void loop() {
 

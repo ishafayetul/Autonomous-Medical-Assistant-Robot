@@ -1,12 +1,12 @@
 
 #include <Encoder.h>
 
-Encoder encoder_fleft(43, 42);
-Encoder encoder_fright(45, 44); //pin is changed from original (35, 34)
-Encoder encoder_bleft(47, 46);
-Encoder encoder_bright(49, 48); //pin is changed from original (31, 30)
+Encoder encoder_bright(43, 42);//BR
+Encoder encoder_bleft(45, 44); //BL
+Encoder encoder_fright(47, 46);//FR
+Encoder encoder_fleft(49, 48);//FL 
 
-int pwm=250;
+int pwm=100;
 
 class BTSMotor{
   protected:
@@ -46,7 +46,7 @@ class BTSMotor{
 
 BTSMotor motor1(10,11); // left front 
 BTSMotor motor2(4,5); // right front
-BTSMotor motor3(8,9); // left back 
+BTSMotor motor3(12,13); // left back 
 BTSMotor motor4(2,3); // right back
 
 void setup() {

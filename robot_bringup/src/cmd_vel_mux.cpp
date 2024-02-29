@@ -45,7 +45,7 @@ protected:
   ros::Subscriber cmd_vel_sub;
   ros::Publisher set_vel_pub;
   float w = 0.44;
-  float wheel_radius = 0.085;
+  float wheel_radius = 0.0425;
   float wheel_separation_width = 0.18125;
   float wheel_separation_lenght = 0.125;
   float wheel_geometry= wheel_separation_lenght+wheel_separation_width;

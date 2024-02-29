@@ -9,7 +9,7 @@
     <rosparam file="$(find robot_bringup)/config/odom_encoder_params.yaml" command="load"/>
   </node>
 
-  <include file="$(find rplidar_ros)/launch/rplidar_a2m8.launch"/>
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.156 0 0.142 0 0 0 robot_footprint laser 40" />
+  <include file="$(find rplidar_ros)/launch/rplidar_a2m8.launch" />
+  <!--node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0.14 -0.09 0.17 0 0 0 robot_footprint laser 40" /-->
   
 </launch>

@@ -13,7 +13,7 @@ TebLocalPlannerROS:
  global_plan_viapoint_sep: -1
  global_plan_prune_distance: 1
  exact_arc_length: true
- feasibility_check_no_poses: 10
+ feasibility_check_no_poses: 3
  publish_feedback: true
     
  # Robot
@@ -29,7 +29,8 @@ TebLocalPlannerROS:
  
  footprint_model:
    type: "polygon"
-   vertices: [[0.205, 0.225], [0.205, -0.225], [-0.205, -0.225], [-0.205, 0.225]]
+   #vertices: [[0.205, 0.225], [0.205, -0.225], [-0.205, -0.225], [-0.205, 0.225]]
+   vertices: [[0.32, 0.225], [0.32, -0.225], [-0.32, -0.225], [-0.32, 0.225]]
 
  # GoalTolerance
     
@@ -43,39 +44,39 @@ TebLocalPlannerROS:
  min_obstacle_dist: 0.3 # This value must also include our robot radius, since footprint_model is set to "point".
  inflation_dist: 0.2
  include_dynamic_obstacles: true
- dynamic_obstacle_inflation_dist: 0.5
+ dynamic_obstacle_inflation_dist: 0.2
  include_costmap_obstacles: false
  costmap_obstacles_behind_robot_dist: 1.0
  obstacle_poses_affected: true
- costmap_converter_plugin: "costmap_converter::CostmapToDynamicObstacles"
+ costmap_converter_plugin: ""
  costmap_converter_spin_thread: true
  costmap_converter_rate: 5
  
- costmap_converter/CostmapToDynamicObstacles:
-   alpha_slow: 0.3
-   alpha_fast: 0.85
-   beta: 0.85
-   min_sep_between_slow_and_fast_filter: 80
-   min_occupancy_probability: 180
-   max_occupancy_neighbors: 100
-   morph_size: 1
-   filter_by_area: True
-   min_area: 3
-   max_area: 300
-   filter_by_circularity: True
-   min_circularity: 0.2
-   max_circularity: 1.0
-   filter_by_inertia: True
-   min_intertia_ratio: 0.2
-   max_inertia_ratio: 1.0
-   filter_by_convexity: False
-   min_convexity: 0.0
-   max_convexity: 1.0
-   dt: 0.2
-   dist_thresh: 60.0
-   max_allowed_skipped_frames: 3
-   max_trace_length: 10
-   static_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
+ #costmap_converter/CostmapToDynamicObstacles:
+ #  alpha_slow: 0.3
+ #  alpha_fast: 0.85
+ #  beta: 0.85
+ #  min_sep_between_slow_and_fast_filter: 80
+ #  min_occupancy_probability: 180
+ #  max_occupancy_neighbors: 100
+ #  morph_size: 1
+ #  filter_by_area: True
+ #  min_area: 3
+ #  max_area: 300
+ #  filter_by_circularity: True
+ #  min_circularity: 0.2
+ #  max_circularity: 1.0
+ #  filter_by_inertia: True
+ #  min_intertia_ratio: 0.2
+ #  max_inertia_ratio: 1.0
+ #  filter_by_convexity: False
+ #  min_convexity: 0.0
+ #  max_convexity: 1.0
+ #  dt: 0.2
+ #  dist_thresh: 60.0
+ #  max_allowed_skipped_frames: 3
+ #  max_trace_length: 10
+ #  static_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
  
  
  # Optimization
@@ -97,9 +98,9 @@ TebLocalPlannerROS:
  weight_kinematics_turning_radius: 1
  weight_optimaltime: 1 # must be > 0
  weight_shortest_path: 0
- weight_obstacle: 100
+ weight_obstacle: 30
  weight_inflation: 0.8
- weight_dynamic_obstacle: 100 
+ weight_dynamic_obstacle: 50 
  weight_dynamic_obstacle_inflation: 0.8
  weight_viapoint: 1
  weight_adapt_factor: 2

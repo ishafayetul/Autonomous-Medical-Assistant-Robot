@@ -2,18 +2,18 @@
 #---(in meters)---
 footprint: [[0.205, 0.225], [0.205, -0.225], [-0.205, -0.225], [-0.205, 0.225]]
 
-
-transform_tolerance: 0.2
 map_type: costmap
+transform_tolerance: 0.2
 enabled: true
-obstacle_range: 5
-raytrace_range: 5.5
-inflation_radius: 5
+obstacle_range: 4
+raytrace_range: 4.5
+inflation_radius: 4
 track_unknown_space: true
 combination_method: 1
 
-observation_sources: laser_scan_sensor
-laser_scan_sensor: {data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+observation_sources: Laser_Scan
+Laser_Scan: {sensor_frame: "laser", data_type: LaserScan, topic: "/scan", marking: true, clearing: true,max_obstacle_height: 1, min_obstacle_height: 0}
 
 
 inflation_layer:
@@ -23,4 +23,4 @@ inflation_layer:
 
 static_layer:
   enabled:              true
-  map_topic:            "/map"
+  map_topic:            map

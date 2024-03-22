@@ -152,14 +152,6 @@ target_link_libraries(${PROJECT_NAME}_Mecanum_TF
  ${catkin_LIBRARIES}
 )
 
-
-add_executable(${PROJECT_NAME}_ter_cmd src/ter_cmd.cpp)
-set_target_properties(${PROJECT_NAME}_ter_cmd PROPERTIES OUTPUT_NAME ter_cmd PREFIX "")
-
-add_dependencies(${PROJECT_NAME}_ter_cmd ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME}_ter_cmd
-   ${catkin_LIBRARIES}
- )
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure

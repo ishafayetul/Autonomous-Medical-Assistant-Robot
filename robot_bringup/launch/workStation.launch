@@ -1,12 +1,19 @@
 <launch>
   <!--include file="$(find robot_bringup)/launch/gmapping.launch" /-->
   <arg name="map" default="map_test"/>
-  <arg name="map_file" default="$(find robot_bringup)/map/robotics_lab.yaml"/>
+  <arg name="map_file" default="$(find robot_bringup)/map/new_updated_map2.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+  
+  <!--Filters-->
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain"
+      name="laser_filter">
+    <rosparam command="load" file="$(find robot_bringup)/filters/box_filter.yaml" />
+  </node>
   
   <!--- Run AMCL -->
   <include file="$(find robot_bringup)/launch/amcl.launch" />
 
+  
   <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_bringup)/final_test_rviz.rviz"/-->
   <!--node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/-->  
 

@@ -4,8 +4,8 @@ global_costmap:
   update_frequency: 5.0
   publish_frequency: 5
   static_map: true
-  resolution: 0.2
-  transform_tolerance: 0.2
+  resolution: 0.02
+  transform_tolerance: 0.1
   plugins:
     - {name: static_layer,            type: "costmap_2d::StaticLayer"}
     - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}

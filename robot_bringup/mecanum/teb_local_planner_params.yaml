@@ -18,24 +18,25 @@ TebLocalPlannerROS:
     
  # Robot
          
- max_vel_x: 0.3
+ max_vel_x: 0.5
  max_vel_x_backwards: 0.1
  #max_vel_y: 0.0
- max_vel_theta: 0.1  
- acc_lim_x: 0.009
+ max_vel_theta: 0.3  
+ acc_lim_x: 0.05
  #acc_lim_y: 0.0
- acc_lim_theta: 0.001
+ acc_lim_theta: 0.03
  min_turning_radius: 0 # omni-drive robot (can turn on place!)
  
  footprint_model:
-   type: "polygon"
-   vertices: [[0.22, 0.25], [0.22, -0.25], [-0.22, -0.25], [-0.22, 0.25]]
+   type: "circular"
+   radius: 0.32
+   #vertices: [[0.18, 0.20], [0.18, -0.20], [-0.18, -0.20], [-0.18, 0.20]]
    #vertices: [[0.32, 0.225], [0.32, -0.225], [-0.32, -0.225], [-0.32, 0.225]]
 
  # GoalTolerance
     
- xy_goal_tolerance: 0.1
- yaw_goal_tolerance: 0.1
+ xy_goal_tolerance: 0.05
+ yaw_goal_tolerance: 0.3
  free_goal_vel: false
  complete_global_plan: true
     
@@ -44,7 +45,7 @@ TebLocalPlannerROS:
  min_obstacle_dist: 0.3 # This value must also include our robot radius, since footprint_model is set to "point".
  inflation_dist: 0.2
  include_dynamic_obstacles: true
- dynamic_obstacle_inflation_dist: 0.2
+ dynamic_obstacle_inflation_dist: 0.4
  include_costmap_obstacles: false
  costmap_obstacles_behind_robot_dist: 1.0
  obstacle_poses_affected: true
@@ -97,7 +98,7 @@ TebLocalPlannerROS:
  weight_kinematics_forward_drive: 1000
  weight_kinematics_turning_radius: 1
  weight_optimaltime: 1 # must be > 0
- weight_shortest_path: 0
+ weight_shortest_path: 10
  weight_obstacle: 30
  weight_inflation: 0.8
  weight_dynamic_obstacle: 50 

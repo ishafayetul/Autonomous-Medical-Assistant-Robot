@@ -1,8 +1,8 @@
 #footprint: [[0.32, 0.225], [0.32, -0.225], [-0.32, -0.225], [-0.32, 0.225]]
-#footprint: [[0.18, 0.20], [0.18, -0.20], [-0.18, -0.20], [-0.18, 0.20]]
-footprint_model:
-   type: "circular"
-   radius: 0.32
+footprint: [[0.18, 0.20], [0.18, -0.20], [-0.18, -0.20], [-0.18, 0.20]]
+#footprint_model:
+   #type: "circular"
+   #radius: 0.20
 map_type: costmap
 transform_tolerance: 0.1
 inflation_radius: 0.8

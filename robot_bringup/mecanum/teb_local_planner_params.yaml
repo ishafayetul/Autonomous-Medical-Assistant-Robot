@@ -18,13 +18,13 @@ TebLocalPlannerROS:
     
  # Robot
          
- max_vel_x: 0.5
- max_vel_x_backwards: 0.5
+ max_vel_x: 0.1
+ max_vel_x_backwards: 0.1
  #max_vel_y: 0.0
- max_vel_theta: 0.5 
- acc_lim_x: 0.09
+ max_vel_theta: 0.1
+ acc_lim_x: 0.01
  #acc_lim_y: 0.0
- acc_lim_theta: 0.09
+ acc_lim_theta: 0.01
  min_turning_radius: 0 # omni-drive robot (can turn on place!)
  
  footprint_model:

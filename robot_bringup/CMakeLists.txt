@@ -155,6 +155,9 @@ target_link_libraries(${PROJECT_NAME}_Mecanum_TF
 catkin_install_python(PROGRAMS src/send_goal.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+catkin_install_python(PROGRAMS src/send_goal_action.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries

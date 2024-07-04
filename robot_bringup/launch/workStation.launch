@@ -12,7 +12,6 @@
   
   <!--- Run AMCL -->
   <include file="$(find robot_bringup)/launch/amcl.launch" />
-
   
   <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_bringup)/final_test_rviz.rviz"/-->
   <!--node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/-->  

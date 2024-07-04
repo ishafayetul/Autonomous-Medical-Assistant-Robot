@@ -1,0 +1,5 @@
+<launch>
+<include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+  <!--roslaunch rosbridge_server rosbridge_websocket.launch/-->
+<node name="move_base_goal_publisher" pkg="robot_bringup" type="send_goal.py" respawn="true" output="screen"/>
+</launch>

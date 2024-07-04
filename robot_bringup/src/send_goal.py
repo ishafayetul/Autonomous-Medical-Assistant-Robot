@@ -2,7 +2,8 @@ import rospy
 from std_msgs.msg import String as str
 from geometry_msgs.msg import PoseStamped
 import time
-
+from actionlib_msgs.msg import GoalID
+from move_base_msgs.msg import MoveBaseActionResult
 def printMsg(goal_msg):
     rospy.loginfo(goal_msg.header.seq)
     rospy.loginfo(goal_msg.header.stamp)
@@ -14,10 +15,12 @@ def printMsg(goal_msg):
     rospy.loginfo(goal_msg.pose.orientation.z)
     rospy.loginfo(goal_msg.pose.orientation.w )
 
-GoalPoints = [[-4.45739221572876,1.5868940353393555, 0.0, 0.0, 0.0, 0.0, 1],[1.45739221572876,5.5868940353393555, 0.0, 0.0, 0.0, 0.0, 1]]
+GoalPoints = [[-2.45739221572876,1.5868940353393555, 0.0, 0.0, 0.0, 0.0, 1],[1.45739221572876,5.5868940353393555, 0.0, 0.0, 0.0, 0.0, 1]]
 loc=""  
 goal_pose = PoseStamped()
-count=0             
+count=0
+
+cancel_goal=GoalID()
 def callback(data):
     global loc
     loc=data.data
@@ -54,13 +57,32 @@ def callback(data):
         goal_pose.pose.orientation.z = GoalPoints[1][5]    
         goal_pose.pose.orientation.w = GoalPoints[1][6]
     printMsg(goal_pose)
-    
-    
+
+
+def result(data):
+    flag=data.result
+    rospy.loginfo(flag)
+    if(flag=="Goal reached."):
+        global loc
+        loc=""
+prev_goal=""  
 if __name__ == '__main__':
+    
     while(1):
-        rospy.Subscriber("sending_goal", str, callback)
         rospy.init_node('move_base_goal_publisher')
+        cancel_goal_publisher = rospy.Publisher("move_base/cancel", GoalID, queue_size=5)
         goal_publisher = rospy.Publisher("move_base_simple/goal", PoseStamped, queue_size=5)
-        time.sleep(1)
+        rospy.Subscriber("sending_goal", str, callback)
+        rospy.Subscriber("move_base/result", MoveBaseActionResult, result)
+        if(loc=="cancel"):
+            cancel_goal_publisher.publish(cancel_goal)
+            rospy.loginfo("Goal is canceled")
+            loc=""
+            break
         goal_publisher.publish(goal_pose)
-        #printMsg(goal_pose)
+        time.sleep(1)
+        prev_goal=loc
+        
+        
+            
+        

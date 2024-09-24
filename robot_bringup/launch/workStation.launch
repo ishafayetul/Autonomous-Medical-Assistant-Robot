@@ -1,7 +1,7 @@
 <launch>
   <!--include file="$(find robot_bringup)/launch/gmapping.launch" /-->
   <arg name="map" default="map_test"/>
-  <arg name="map_file" default="$(find robot_bringup)/map/two_room_map.yaml"/>
+  <arg name="map_file" default="$(find robot_bringup)/map/24_sept_lab_map.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
   
   <!--Filters-->

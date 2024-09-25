@@ -2,6 +2,7 @@
 
 In the ever-changing world of healthcare, the incorporation of cutting-edge robotics has the power to completely transform the way patients are treated and how operations are carried out. **IHABOT2**, a state-of-the-art medical assistant robot, showcases this immense potential for transformation.
 
+![IHABOT2 Medical Assistant Robot](ihabot.webp)
 ## Key Features of IHABOT2
 
 **IHABOT2** is designed to navigate hospital environments effortlessly, utilizing advanced technologies to carry out essential tasks such as:
